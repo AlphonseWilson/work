@@ -1,0 +1,95 @@
+    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Submit Requests</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="myCoolStyles.css">
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<body>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="/P1/Employee#">Employee</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="/P1/SubmitRequestEmp">Submit A Request <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/P1/ViewRequestEmp">View Requests</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/P1/EditInfoEmp">Edit Info</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+
+
+	<div class="display">
+		<h1>Reimburment Form</h1>
+  </div>
+  
+  <div class="display">
+    <form action="SubmitRequestEmp" method="post"> 
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+              <label for="validationDefault01">First name</label>
+              <input type="text" name="users_firstname" class="form-control" id="validationDefault01" placeholder="First name" value="" required>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="validationDefault02">Last name</label>
+              <input type="text" name="users_lastname" class="form-control" id="validationDefault02" placeholder="Last name" value="" required>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="validationDefaultUsername">Username</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroupPrepend2">@</span>
+                </div>
+                <input type="text" name="users_username" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" required>
+              </div>
+            </div>
+          </div>
+
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Email address</label>
+        <input type="email" name="users_email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">Reimbursment Type</label>
+        <select class="form-control" name="reimb_type" id="exampleFormControlSelect1">
+          <option>Business Travel</option>
+          <option>Education or Training</option>
+          <option>Business Supplies or Tools</option>
+          <option>Miscellaneous Business-Related Expenses</option>
+        </select>
+      </div>
+    
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Description</label>
+        <textarea class="form-control" name="reimb_description" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+
+      <button class="btn btn-primary" type="submit">Submit form</button>
+    </form>
+  </div> 
+
+	<form action="logout" method="get">
+		<input type="submit" value="logout"/>
+	</form>
+</body>
+<!-- 
+<script src="scripts/check.js"></script>
+ --></html>
