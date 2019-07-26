@@ -7,8 +7,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
-
+import com.revature.beans.Users;
 import com.revature.beans.Users;
 import com.revature.dao.UserDAO;
 import com.revature.util.ConnFactory;
@@ -133,6 +134,21 @@ public class UsersDAOImpl implements UserDAO {
 			}
 
 		return userList;
+	}
+//	thisOne!!!!!!!!!!!!!!!!!!!!
+	public void UpdateProfile(String updatedColumn, String update, String USERNAME) throws SQLException {
+		
+		
+		
+		String sql = "UPDATE USERS SET "+updatedColumn+" = '"+update+"' WHERE USERNAME = '"+USERNAME+"'";
+
+		
+
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ps.executeUpdate(sql);
+			
+
+		
 	}
 	
 	
