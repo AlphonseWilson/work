@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.revature.beans.Reimbursment;
+import com.revature.beans.Users;
 import com.revature.daoimpl.ReimbursmentDAOImpl;
+import com.revature.daoimpl.UsersDAOImpl;
 
 /**
  * Servlet implementation class SubmitRequestEmpServlet
@@ -27,42 +29,45 @@ public class SubmitRequestEmpServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		// TODO Auto-generated method stub
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		response.sendRedirect("SubmitRequestEmp.html");
 		
 	}
-	
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		UsersDAOImpl impl = new UsersDAOImpl();
+		
+		Users usr = new Users();
+		//form data
+		String amount = request.getParameter("amount"); 
+		int money = Integer.parseInt(amount);
+		String picture =(String)request.getParameter("picture");
 		
 		
-	//	String reimb_amount=request.getParameter("reimb_amount");
-		String reimb_description=request.getParameter("reimb_description");
-		String reimb_type=request.getParameter("reimb_type");	
-	//	double rm_amount=Double.parseDouble(reimb_amount);
+		HttpSession sess =request.getSession();
+		String sesUser = (String) sess.getAttribute("UserName");
+		
+		usr = impl.getUser(sesUser, usr);
+		String sql = "INSERT INTO REQUESTS (EMPID, AMOUNT, PICTURE, PENDINGSTATE, MANAGER) VALUES ("+usr.getUser_id()+","+money+", '"+picture+"', 'Pending',"+usr.getUser_ManagerId()+") ";
+
 
 		
-	
-		
-				
-				ReimbursmentDAOImpl rd= new ReimbursmentDAOImpl();
-				
-				try {
-					rd.createReimbursment(new Reimbursment(22.2,reimb_description,reimb_type));
-					
-					
-					
-					
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				response.sendRedirect("Employee.html");
-			}
-			
-			
+//		String sql = "UPDATE USERS SET "+edit+" = '"+username+"' WHERE EMPID = "+sesUser;
+		System.out.println(sql);
+		try {
+			impl.SubmitRequest(usr, money, picture);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+			
+		response.sendRedirect("Employee");		
 		
 		
-	
+	}
 
-
+}

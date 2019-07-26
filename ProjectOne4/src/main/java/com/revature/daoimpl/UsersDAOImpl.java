@@ -151,7 +151,19 @@ public class UsersDAOImpl implements UserDAO {
 		
 	}
 	
-	
-	
+public void SubmitRequest(Users user, int amount, String picture) throws SQLException {
+		
+		
+		
+		String sql = "INSERT INTO REQUESTS (EMPID, AMOUNT, PICTURE, PENDINGSTATE, MANAGER) VALUES ("+user.getUser_id()+","+amount+", '"+picture+"', 'Pending',"+user.getUser_ManagerId()+") ";
+
+		
+
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ps.executeUpdate(sql);
+			
+
+		
+	}
 
 }
