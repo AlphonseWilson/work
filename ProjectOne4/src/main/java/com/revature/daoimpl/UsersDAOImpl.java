@@ -4,6 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
 
 import com.revature.beans.Users;
 import com.revature.dao.UserDAO;
@@ -55,7 +59,7 @@ public class UsersDAOImpl implements UserDAO {
 	}
 	
 	
-	public Users getUser(String username) {
+	public Users getUser(String username, Users usr) {
 	 Users user = new Users();
 		String sql="select USERNAME, PASS, EMPID, POSITION, FIRSTNAME, LASTNAME, PHONE, EMAIL, MYMANAGER from USERS where USERNAME = ?";
 		
@@ -95,6 +99,29 @@ public class UsersDAOImpl implements UserDAO {
 		
 		return user;
 	}
+	public List<UserDAO> getPendingRequests() throws SQLException{
+		
+		List<UserDAO> userList = new ArrayList<>();
+		String sql = "SELECT * FROM REQUESTS WHERE PENDINGSTATE = 'Pending'";
+		
+
+				Statement stmt = conn.createStatement();
+				ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next()) {
+				Users u = new Users();
+				int reqid = rs.getInt("REQID");
+				u.setReqid(reqid);
+				
+				int amount = rs.getInt("AMOUNT");
+				u.setAmount(amount);
+			
+				
+				
+			}
+
+		return userList;
+	}
+	
 	
 	
 

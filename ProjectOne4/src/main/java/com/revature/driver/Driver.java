@@ -11,24 +11,24 @@ public class Driver {
 	public static void main(String[] args) {
 	
 
-		AuthenticationService au = new AuthenticationService();
-		System.out.println(au.authenticateUser("MNOFAL","PASSWORD","employee"));
-		
-		Reimbursment reimb= new Reimbursment(432423, "FSSSSSF", "23", "TTTTTTTYYYYYY",1, "SADs", "sASAss");
-		ReimbursmentDAOImpl rd= new ReimbursmentDAOImpl();
-		
-		try {
-			
-			
-			rd.createReimbursment(reimb);
-	
-		
-		
-		
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		AuthenticationService au = new AuthenticationService();
+//		System.out.println(au.authenticateUser("MNOFAL","PASSWORD","employee"));
+//		
+//		Reimbursment reimb= new Reimbursment(432423, "FSSSSSF", "23", "TTTTTTTYYYYYY",1, "SADs", "sASAss");
+//		ReimbursmentDAOImpl rd= new ReimbursmentDAOImpl();
+//		
+//		try {
+//			
+//			
+//			rd.createReimbursment(reimb);
+//	
+//		
+//		
+//		
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		
 		
 		

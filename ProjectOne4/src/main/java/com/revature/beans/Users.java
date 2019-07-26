@@ -24,6 +24,8 @@ public class Users {
 	private String user_email;
 	private int user_ManagerId;
 	private String user_position;
+	private int reqid;
+	private int amount;
 	public int getOwned_amount_left() {
 		return owned_amount_left;
 	}
@@ -249,5 +251,18 @@ public class Users {
 		return "User [id=" + userId + ", firstname=" + user_FirstName + ", lastname=" + user_LastName + ", username=" + userName
 				+ ", email=" + user_email + "]";
 	}
+	public int getReqid() {
+		return reqid;
+	}
+	public void setReqid(int reqid) {
+		this.reqid = reqid;
+	}
+	public int getAmount() {
+		return amount;
+	}
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+
 
 }

@@ -19,7 +19,7 @@ public class ReimbursmentDAOImpl implements ReimbursmentDAO{
 	
 	public Users getuserDao(String username) {
 		
-		user=ud.getUser(username);
+		user=ud.getUser(username, user);
 		
 		return user ;
 		
