@@ -40,14 +40,26 @@
 		<h1>Edit Your Info</h1>
 	</div>
 	<div class="display">
-		<br>
-		<p id="firstname"></p>
-		<br>
-		<p id="lastname"></p>
-		<br>
-		<p id="username"></p>
-		<br>
-		<p id="email"></p>
+		<form action="SubmitRequestEmpServlet" method="post">
+                 
+            	<fieldset>
+                    <legend>What would you like to Change:</legend>
+                   <input type="radio" name="position" value="username" checked> Username<br>
+                   <input type="radio" name="position" value="password"> Password<br>
+                   <input type="radio" name="position" value="first_name"> First name<br>
+                   <input type="radio" name="position" value="last_name"> Last name<br>
+                   <input type="radio" name="position" value="phone"> Phone number<br>
+                   <input type="radio" name="position" value="email"> Email<br>
+               </fieldset>
+                <fieldset>
+                    <legend>Input Change:</legend>
+                    <input required autocomplete="off" name="username"/>
+                </fieldset>
+                
+                
+               <br>
+               <input type="submit" value="login"/>
+           </form>
     </div>
     
 

@@ -22,6 +22,7 @@ function populateUser() {
 			document.getElementById("username").innerText = "username: "+user.user_name;
 			document.getElementById("Password").innerText = "Password: "+user.pass;
 			document.getElementById("User_ID").innerText = "User_ID: "+user.user_id;
+			'<%Session["UserId"] = "' + user.user_id + '"; %>';
 			document.getElementById("Position").innerText = "Position: "+user.user_position;
 			document.getElementById("Phone").innerText = "Phone: "+user.user_Phone;
 			document.getElementById("Email").innerText = "Email: "+user.user_email;

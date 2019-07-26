@@ -97,8 +97,6 @@
     <servlet-name>ViewTeamMgrServlet</servlet-name>
     <url-pattern>/ViewTeamMgr</url-pattern>
   </servlet-mapping>
-  
-
   <servlet>
     <description></description>
     <display-name>SessionServlet</display-name>
@@ -109,5 +107,14 @@
     <servlet-name>SessionServlet</servlet-name>
     <url-pattern>/session</url-pattern>
   </servlet-mapping>
-
+  <servlet>
+    <description></description>
+    <display-name>ViewPendingRequests</display-name>
+    <servlet-name>ViewPendingRequests</servlet-name>
+    <servlet-class>com.revature.servlet.ViewPendingRequests</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewPendingRequests</servlet-name>
+    <url-pattern>/ViewPendingRequests</url-pattern>
+  </servlet-mapping>
 </web-app>

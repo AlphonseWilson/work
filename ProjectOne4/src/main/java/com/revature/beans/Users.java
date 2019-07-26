@@ -25,6 +25,7 @@ public class Users {
 	private int user_ManagerId;
 	private String user_position;
 	private int reqid;
+	private String ReqState;
 	private int amount;
 	public int getOwned_amount_left() {
 		return owned_amount_left;
@@ -262,6 +263,12 @@ public class Users {
 	}
 	public void setAmount(int amount) {
 		this.amount = amount;
+	}
+	public String getReqState() {
+		return ReqState;
+	}
+	public void setReqState(String reqState) {
+		ReqState = reqState;
 	}
 
 

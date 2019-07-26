@@ -99,22 +99,35 @@ public class UsersDAOImpl implements UserDAO {
 		
 		return user;
 	}
-	public List<UserDAO> getPendingRequests() throws SQLException{
+	public List<Users> getPendingRequests(int userId) throws SQLException{
 		
-		List<UserDAO> userList = new ArrayList<>();
-		String sql = "SELECT * FROM REQUESTS WHERE PENDINGSTATE = 'Pending'";
+		List<Users> userList = new ArrayList<>();
+		Connection conn = cf.getConnection();
 		
-
-				Statement stmt = conn.createStatement();
-				ResultSet rs = stmt.executeQuery(sql);
+		
+		String sql = "SELECT REQID, AMOUNT, PENDINGSTATE FROM REQUESTS WHERE EMPID = 13";
+		
+		PreparedStatement stmt;
+		
+		stmt = conn.prepareStatement(sql);
+		
+		//when we set the parameters, we match the value to the index according 
+		// to the question array in the SQL string above, SQL index starts at 1
+		//stmt.setInt(1, user_id);
+	//	stmt.setInt(1, userId);
+				
+		ResultSet rs = stmt.executeQuery(sql);
 			while(rs.next()) {
 				Users u = new Users();
-				int reqid = rs.getInt("REQID");
+				int reqid = rs.getInt(1);
 				u.setReqid(reqid);
 				
-				int amount = rs.getInt("AMOUNT");
+				int amount = rs.getInt(2);
 				u.setAmount(amount);
-			
+				
+				String pendingState = rs.getString(3);
+				u.setReqState(pendingState);
+			      userList.add(u);
 				
 				
 			}

@@ -38,57 +38,32 @@
 
 
 	<div class="display">
-		<h1>Reimburment Form</h1>
+		<h1>Reimbursement Form</h1>
   </div>
   
   <div class="display">
-    <form action="SubmitRequestEmp" method="post"> 
-        <div class="form-row">
-            <div class="col-md-4 mb-3">
-              <label for="validationDefault01">First name</label>
-              <input type="text" name="users_firstname" class="form-control" id="validationDefault01" placeholder="First name" value="" required>
-            </div>
-            <div class="col-md-4 mb-3">
-              <label for="validationDefault02">Last name</label>
-              <input type="text" name="users_lastname" class="form-control" id="validationDefault02" placeholder="Last name" value="" required>
-            </div>
-            <div class="col-md-4 mb-3">
-              <label for="validationDefaultUsername">Username</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="inputGroupPrepend2">@</span>
-                </div>
-                <input type="text" name="users_username" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" required>
-              </div>
-            </div>
-          </div>
-
-      <div class="form-group">
-        <label for="exampleFormControlInput1">Email address</label>
-        <input type="email" name="users_email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-      </div>
-      <div class="form-group">
-        <label for="exampleFormControlSelect1">Reimbursment Type</label>
-        <select class="form-control" name="reimb_type" id="exampleFormControlSelect1">
-          <option>Business Travel</option>
-          <option>Education or Training</option>
-          <option>Business Supplies or Tools</option>
-          <option>Miscellaneous Business-Related Expenses</option>
-        </select>
-      </div>
-    
-      <div class="form-group">
-        <label for="exampleFormControlTextarea1">Description</label>
-        <textarea class="form-control" name="reimb_description" id="exampleFormControlTextarea1" rows="3"></textarea>
-      </div>
-
-      <button class="btn btn-primary" type="submit">Submit form</button>
-    </form>
-  </div> 
-
-	<form action="logout" method="get">
-		<input type="submit" value="logout"/>
-	</form>
+  		<form action="SubmitRequestEmpServlet" method="post">
+                 
+            	<fieldset>
+                    <legend>What would you like to Change:</legend>
+                   <input type="radio" name="position" value="username" checked> Username<br>
+                   <input type="radio" name="position" value="password"> Password<br>
+                   <input type="radio" name="position" value="first_name"> First name<br>
+                   <input type="radio" name="position" value="last_name"> Last name<br>
+                   <input type="radio" name="position" value="phone"> Phone number<br>
+                   <input type="radio" name="position" value="email"> Email<br>
+               </fieldset>
+                <fieldset>
+                    <legend>Input Change:</legend>
+                    <input required autocomplete="off" name="username"/>
+                </fieldset>
+                
+                
+               <br>
+               <input type="submit" value="login"/>
+           </form>
+           
+    </div>
 </body>
 <!-- 
 <script src="scripts/check.js"></script>
